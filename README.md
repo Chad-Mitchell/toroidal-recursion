@@ -1,4 +1,4 @@
-# Toroidal Recursion Principle
+# Toroidal Recursion Principle 
 
 Non-contractible cycles as the universal mechanism for antifragile complexity.
 
