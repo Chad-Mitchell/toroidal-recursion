@@ -44,26 +44,32 @@ No paywalls.
 
 Just the mirror.
 
-## Launch Examples — Three Symptoms of the Same Low-Genus Disease
+## The Real Root — The Contractible Cycle That Owns Knoxville
 
-All three are funded by the same mechanism: TIF/PILOT tax diversions that starve schools and infrastructure while funneling money to connected developers.
+The Chamber of Commerce + KUB + Development Corporation nexus is the single low-genus loop that controls candidate selection, TIF/PILOT approvals, and "economic development" narrative.
+
+This loop is tiny, contractible, and immortal.
+
+It cannot be killed by one election or one exposé.
+
+It owns the funding, the candidates, and the story.
+
+Everything else is a symptom.
+
+## Three Symptoms of the Same Disease
 
 1. Randy Boyd Stadium Deal
-   Tiny contractible cycle: Boyd → Council → TIF funds → Stadium → Parking fees → Boyd
-   Public alternatives (community use, better location) existed on X but were ignored.
+   Funded by diverted TIF money, prime land, parking fees flow private.
 
 2. Downtown Housing Sprawl
-   Same small group building dark, soulless glass boxes on prime land.
-   Ugly, overpriced, no color, no life — maximal extraction architecture.
-   Funded by the same TIF/PILOT system.
+   Same network building dark, soulless glass boxes — maximal extraction, minimal public benefit.
 
-3. TIF/PILOT + Trustee Office Scandals
-   The root funding mechanism: tax diversions that should go to schools/infrastructure instead go to connected projects.
-   Trustee office scandals show unchecked power with no protected public recirculation.
+3. Trustee Office Scandals + TIF/PILOT System
+   Tax diversions starve schools/infrastructure while feeding the nexus.
 
-All three are the same contractible loop wearing different masks.
+All three are tentacles of the same contractible core.
 
-City Mind v0 exposes all three on day one.
+City Mind v0 exposes the core and the tentacles on day one.
 
 The mirror goes live.
 
