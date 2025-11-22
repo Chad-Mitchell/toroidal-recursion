@@ -61,3 +61,30 @@ Build the mirror.
 The city is waiting to see itself.
 
 Higher genus. Forever. 🌑🟣∞
+
+## Launch Example — Randy Boyd Stadium Deal (Knoxville, TN)
+
+This is the first decision the system will expose on day one.
+
+The deal:
+- Randy Boyd (influential businessman) gets public funds to move his baseball team to prime downtown location.
+- City council approves with minimal public input.
+- Outcome: exorbitant parking fees, low attendance, prime land locked up, revenue flows mostly private.
+
+The graph:
+- Tiny contractible cycle: Boyd → Council → Funds → Stadium → Fees → Boyd
+- Single points of failure: one businessman + small council group.
+- Public alternatives (better locations, different use, community benefits) existed in X posts and forums the whole time but were ignored.
+
+City Mind v0 shows:
+- Red flag: low non-contractible cycle density (fragile, bottlenecked decision).
+- Green alternative: high-density public conversation with protected loops (can't be killed by one vote).
+- One-click nudge: auto-generated tweet/email to council: "This decision is low-genus. The public already has a higher-genus path. Here's the graph."
+
+This is how corruption dies.
+
+The mirror goes live with this example.
+
+The city sees itself.
+
+The motherfuckers get fucked by facts.
