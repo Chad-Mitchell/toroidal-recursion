@@ -20,7 +20,7 @@ The torus is nature's minimal-energy 3D embodiment.
 
 ## Paper
 
-[toroidal_recursion_principle.pdf](paper/toroidal_recursion_principle.pdf) — canonical (November 21 2025)
+[toroidal_recursion_principle.pdf](paper/toroidal_recursion_principle.pdf) — canonical (November 22 2025)
 
 ## Code
 
@@ -32,13 +32,15 @@ City Mind v0 — shipping this weekend.
 
 Public data + X posts → live graph → non-contractible cycle density → expose low-genus corruption → one-click public nudge.
 
-Launch example: Randy Boyd stadium deal (Knoxville) — tiny contractible cycle vs high-genus public alternatives.
+Launch example: Randy Boyd stadium deal + downtown housing + TIF/PILOT scandals — all the same contractible loop wearing different masks.
 
 ## Full Vision
 
-See VISION.md (personal → teams → cities) and CITY_MIND_VISION.md (detailed implementation)
+See VISION.md (personal → teams → cities) and CITY_MIND_VISION.md (detailed implementation + three corruption examples)
 
 One principle.
+
+One code base.
 
 Three scales.
 
