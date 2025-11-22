@@ -28,7 +28,12 @@ def count_non_contractible_cycles(board_graph, lifts=3):
 
 # Example usage
 if __name__ == "__main__":
-    # 8x8 toroidal chess board graph (simplified)
-    G = nx.grid_2d_graph(8, 8, periodic=True)
-    density = count_non_contractible_cycles(G)
-    print(f"Non-contractible cycle density on 8x8 torus: {density:.4f}")
+    # 8x8 toroidal chess board (periodic grid)
+    G_torus = nx.grid_2d_graph(8, 8, periodic=True)
+    density_torus = count_non_contractible_cycles(G_torus)
+    print(f"Toroidal 8x8 density: {density_torus:.4f}")  # ~0.125 or similar
+
+    # Flat 8x8 for control
+    G_flat = nx.grid_2d_graph(8, 8)
+    density_flat = count_non_contractible_cycles(G_flat)
+    print(f"Flat 8x8 density: {density_flat:.4f}")  # 0.0
