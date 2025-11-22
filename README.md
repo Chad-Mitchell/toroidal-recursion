@@ -6,7 +6,8 @@ The principle is simple and reproducible:
 
 In any system with holes (genus ≥ 1), the agent that maximizes non-contractible cycle density per resource dominates.
 
-Flat topology: no advantage.  
+Flat topology: no advantage.
+
 Holed topology: tiny reward (+0.002) → massive domination in games (private runs, logs publishing this week).
 
 Mechanism: each new non-contractible cycle = genus +1 = protected entropy channel.  
