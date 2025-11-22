@@ -44,7 +44,7 @@ No paywalls.
 
 Just the mirror.
 
-## Launch Examples — The Three Tumors of the Same Low-Genus Cancer
+## Launch Examples — Three Symptoms of the Same Low-Genus Disease
 
 All three are funded by the same mechanism: TIF/PILOT tax diversions that starve schools and infrastructure while funneling money to connected developers.
 
@@ -52,14 +52,14 @@ All three are funded by the same mechanism: TIF/PILOT tax diversions that starve
    Tiny contractible cycle: Boyd → Council → TIF funds → Stadium → Parking fees → Boyd
    Public alternatives (community use, better location) existed on X but were ignored.
 
-2. Downtown "Soviet-style" Housing Cancer
-   Same small group (Boyd network + partners) building dark, soulless glass boxes on prime land.
+2. Downtown Housing Sprawl
+   Same small group building dark, soulless glass boxes on prime land.
    Ugly, overpriced, no color, no life — maximal extraction architecture.
    Funded by the same TIF/PILOT system.
 
-3. Trustee Office Scandals + TIF/PILOT System Itself
+3. TIF/PILOT + Trustee Office Scandals
    The root funding mechanism: tax diversions that should go to schools/infrastructure instead go to connected projects.
-   Trustee office scandals (missing funds, nepotism) show unchecked power with no protected public recirculation.
+   Trustee office scandals show unchecked power with no protected public recirculation.
 
 All three are the same contractible loop wearing different masks.
 
@@ -67,9 +67,7 @@ City Mind v0 exposes all three on day one.
 
 The mirror goes live.
 
-The vultures lose their shadows.
-
-The city heals.
+The city heals itself.
 
 v0 (ship this weekend):
 - Hard-coded Knoxville data sources
