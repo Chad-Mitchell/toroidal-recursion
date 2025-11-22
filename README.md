@@ -2,7 +2,7 @@
 
 Non-contractible cycles as the universal mechanism for antifragile complexity.
 
-The principle is simple, reproducible, and already running in nature and technology.
+The principle is simple and reproducible:
 
 In any system with holes (genus ≥ 1), the agent that maximizes non-contractible cycle density per resource dominates.
 
@@ -26,25 +26,19 @@ The torus is nature's minimal-energy 3D embodiment.
 
 core/cycle_counter.py — working, runnable today (toroidal density > 0, flat = 0)
 
-## Applications (same principle, different scales)
+## Current Focus
 
-### City Mind (shipping v0 this weekend)
+City Mind v0 — shipping this weekend.
 
 Public data + X posts → live graph → non-contractible cycle density → expose low-genus corruption → one-click public nudge.
 
-Launch example: Randy Boyd stadium deal (Knoxville) — tiny contractible cycle (Boyd → Council → Funds → Stadium → Fees → Boyd) vs high-genus public alternatives already on X.
+Launch example: Randy Boyd stadium deal (Knoxville) — tiny contractible cycle vs high-genus public alternatives.
 
-### Looper (personal — next)
+## Full Vision
 
-Brain dump → auto-graph → density score → feel the click when the antifragile phase hits.
-
-### Org Flow (teams — after)
-
-Communication data → graph → density score → fix bottlenecks → antifragile teams.
+See VISION.md (personal → teams → cities) and CITY_MIND_VISION.md (detailed implementation)
 
 One principle.
-
-One code base.
 
 Three scales.
 
