@@ -20,7 +20,7 @@ The torus is nature's minimal-energy 3D embodiment.
 
 ## Paper
 
-[toroidal_recursion_principle.pdf](paper/toroidal_recursion_principle.pdf) — canonical (November 22 2025)
+[toroidal_recursion_principle.pdf](paper/toroidal_recursion_principle.pdf) — canonical (November 21 2025)
 
 ## Code
 
