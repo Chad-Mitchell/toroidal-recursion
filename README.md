@@ -10,8 +10,11 @@ Flat topology: no advantage.
 Holed topology: tiny reward (+0.002) → massive domination in games (private runs, logs publishing this week).
 
 Mechanism: each new non-contractible cycle = genus +1 = protected entropy channel.  
+
 At empirical density ρ* ≈ 0.42 the system becomes antifragile.  
+
 Hierarchical synchronization = super-additive genus.  
+
 The torus is nature's minimal-energy 3D embodiment.
 
 ## Paper
