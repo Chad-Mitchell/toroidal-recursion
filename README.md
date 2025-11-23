@@ -1,52 +1,17 @@
-# Toroidal Recursion
+# Toroidal Recursion Principle — LIVE v2 (November 23, 2025)
 
-Non-contractible cycles as the universal mechanism for antifragile complexity.
+**Current paper (the one that actually reflects what we know today):**  
+→ [toroidal_recursion_v2.md](toroidal_recursion_v2.md)  ← READ THIS FIRST
 
-The principle is simple and reproducible:
+**Old v1 paper (kept only for historical record):**  
+→ toroidal_recursion_v1.pdf (November 18, 2025 — superseded)
 
-In any system with holes (genus ≥ 1), the agent that maximizes non-contractible cycle density per resource dominates.
+**Core code (40 lines):**  
+- fractal_torus.py ← the actual engine  
+- cycle_counter.py ← v1 legacy, still useful
 
-Flat topology: no advantage.
+**Live experiments (Nov 23–30, 2025):**  
+→ /experiments/nov2025_swarm (daily commits coming)
 
-Holed topology: tiny reward (+0.002) → massive domination in games (private runs, logs publishing this week).
-
-Mechanism: each new non-contractible cycle = genus +1 = protected entropy channel.  
-
-At empirical density ρ* ≈ 0.42 the system becomes antifragile.  
-
-Hierarchical synchronization = super-additive genus.  
-
-The torus is nature's minimal-energy 3D embodiment.
-
-## Paper
-
-[toroidal_recursion_principle.pdf](paper/toroidal_recursion_principle.pdf) — canonical (November 22 2025)
-
-## Code
-
-core/cycle_counter.py — working, runnable today (toroidal density > 0, flat = 0)
-
-## Current Focus
-
-City Mind v0 — shipping soon.
-
-Public data + X posts → live graph → non-contractible cycle density → automatically detect and expose low-genus structural patterns in public financing flows → one-click neutral public highlight.
-
-Launch examples: sports facility financing, downtown redevelopment districts, and economic incentive programs — frequently the same contractible loop topology wearing different masks.
-
-## Full Vision
-
-See VISION.md (personal → teams → cities) and CITY_MIND_VISION.md (detailed implementation + three anonymized pattern studies)
-
-One principle.  
-One code base.  
-Three scales.
-
-City Mind first.
-
-## Related Projects
-- [Looper](https://github.com/Chad-Mitchell/looper): The personal antifragile engine. First fractal scale. Dump your brain, punch holes, feel the chest click at ρ ≥ 0.42. The torus closes in one skull before the city sees itself.
-
-Repository live, populating daily.
-
-Higher genus when the city sees itself. 🌑🟣∞
+We are in full public falsification mode.  
+Everything else in this repo is now archival except the file linked above.
