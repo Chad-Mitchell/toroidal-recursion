@@ -44,6 +44,9 @@ Three scales.
 
 City Mind first.
 
+## Related Projects
+- [Looper](https://github.com/Chad-Mitchell/looper): The personal antifragile engine. First fractal scale. Dump your brain, punch holes, feel the chest click at ρ ≥ 0.42. The torus closes in one skull before the city sees itself.
+
 Repository live, populating daily.
 
 Higher genus when the city sees itself. 🌑🟣∞
