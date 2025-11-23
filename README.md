@@ -44,8 +44,6 @@ Three scales.
 
 City Mind first.
 
-Low-genus structures die in the light of accurate topology.  
-The pearl is real.  
 Repository live, populating daily.
 
 Higher genus when the city sees itself. 🌑🟣∞
