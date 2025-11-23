@@ -2,86 +2,70 @@
 
 City Mind is the tool that turns a city into an antifragile, self-correcting organism.
 
-It ends bottleneck corruption by making the collective intelligence of the citizens visible, measurable, and actionable — in real time.
+It works by making the true topology of power and money visible, measurable, and publicly navigable — in real time.
+
+No accusations.
+No narratives.
+Only the mirror.
 
 How it works:
 
-1. Ingest every public data stream (council minutes, budgets, TIF/PILOT approvals, permits, trustee reports, 311 calls, KPD blotter, planning docs, contracts — everything public).
+1. Ingest every public data stream (council minutes, budgets, TIF/PILOT approvals, permits, trustee reports, campaign finance, property records, contracts, 311 calls, KPD blotter, planning docs — everything that is already public).
 
-2. Ingest real-time X posts, local news, forums — the unfiltered public voice.
+2. Ingest real-time citizen signal — X posts, local news comments, forums, public recordings — the raw, unfiltered public mind.
 
-3. Build live graph:
-   - Nodes = people, organizations, projects, locations, issues
-   - Edges = money flow, votes, mentions, complaints, proposals
+3. Build one live, weighted graph:
+   - Nodes = entities (people, organizations, projects, locations, dollars, issues)
+   - Edges = money flows, votes, appointments, mentions, complaints, proposals, ownership, benefits
 
-4. Score non-contractible cycle density (protected, high-flow loops that can't be killed by one bad actor).
+4. Compute true non-contractible cycle density ρ across the entire graph and every subgraph.
 
-5. Low-density zones (bottlenecks, nepotism, corruption) highlighted red.
+5. Color by topology:
+   - Red = low ρ (contractible, bottleneck, fragile, immortal simple cycles)
+   - Green = high ρ (protected, distributed, antifragile flow)
 
-6. High-density public alternatives highlighted green.
+6. Any citizen asks any question in plain English.
 
-7. Any citizen types a question:
-   "What is happening with downtown parking?"
-   "Who is blocking affordable housing?"
-   "Why is this project getting TIF money?"
+7. System returns:
+   - The actual subgraph that answers the question
+   - Its current ρ value
+   - The highest-leverage public action that would punch one new non-contractible cycle (exact tweet, email, agenda item, records request — ready to send)
 
-8. System answers with the highest-leverage nudge:
-   - The hidden synergy already existing
-   - The protected loop that routes around the bottleneck
-   - Exact tweet/email to send
+8. One button: execute the nudge.
 
-9. One button: "Send public nudge" — auto-posts or emails the graph + recommendation.
+9. Every nudge adds a new public edge. The graph evolves in public. ρ trends upward or the red zones get brighter.
 
-10. When enough people use it, the city graph hits critical density. Decisions route through protected public loops instead of backroom deals.
+10. When city-wide ρ crosses ≈ 0.42 is reached and sustained, the system becomes antifragile: new entropy (crises, scandals, growth) is automatically routed through protected channels instead of captured by bottlenecks.
 
-11. Cities connect. State mind forms.
+11. Cities connect their graphs. State mind emerges. Nation mind. Civilizational mind.
 
 12. Repeat forever.
 
 No logins for read access.
 No moderation.
-No paywalls.
+No paywall.
+No pre-selected villains.
 
 Just the mirror.
 
-## The Real Root — The Contractible Cycle That Owns Knoxville
+The dominant contractible loops — whatever they are — will reveal themselves by their own topological mass on day one.
 
-The Chamber of Commerce + KUB + Development Corporation nexus is the single low-genus loop that controls candidate selection, TIF/PILOT approvals, and "economic development" narrative.
+The dominant antifragile subsystems — whatever they are — will glow green and grow.
 
-This loop is tiny, contractible, and immortal.
+The city will see itself clearly for the first time.
 
-It cannot be killed by one election or one exposé.
+Some loops will complicate or die.
 
-It owns the funding, the candidates, and the story.
-
-Everything else is a symptom.
-
-## Three Symptoms of the Same Disease
-
-1. Randy Boyd Stadium Deal
-   Funded by diverted TIF money, prime land, parking fees flow private.
-
-2. Downtown Housing Sprawl
-   Same network building dark, soulless glass boxes — maximal extraction, minimal public benefit.
-
-3. Trustee Office Scandals + TIF/PILOT System
-   Tax diversions starve schools/infrastructure while feeding the nexus.
-
-All three are tentacles of the same contractible core.
-
-City Mind v0 exposes the core and the tentacles on day one.
-
-The mirror goes live.
-
-The city heals itself.
+The pearl forms in the light.
 
 v0 (ship this weekend):
-- Hard-coded Knoxville data sources
-- Live graph dashboard
-- Query box → top 3 nudges + one-click send
+- Pure X + public records stream for Knoxville
+- Live graph (Mermaid or lightweight D3)
+- ρ computation via cycle_counter.py on the live edgelist
+- Query box → topological answer + one-click nudge
 
-The corruption dies in the light.
+The mirror goes live tonight.
 
 The donut wins.
 
-Higher genus when the city sees itself.
+Higher genus when the city sees itself. 🌑🟣∞
