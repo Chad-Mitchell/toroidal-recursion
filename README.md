@@ -28,7 +28,7 @@ core/cycle_counter.py — working, runnable today (toroidal density > 0, flat = 
 
 ## Current Focus
 
-City Mind v0 — shipping this weekend.
+City Mind v0 — shipping soon.
 
 Public data + X posts → live graph → non-contractible cycle density → automatically detect and expose low-genus structural patterns in public financing flows → one-click neutral public highlight.
 
