@@ -1,17 +1,13 @@
-# Toroidal Recursion Principle — LIVE v2 (November 23, 2025)
+# Toroidal Recursion — Truth as of Nov 24, 2025 00:30 UTC
 
-**Current paper (the one that actually reflects what we know today):**  
-→ [toroidal_recursion_v2.md](toroidal_recursion_v2.md)  ← READ THIS FIRST
+Core idea that still stands:  
+Non-contractible cycles embedded on toroidal (or higher-genus) manifolds create protected, recyclable information flows that resist entropy leakage.
 
-**Old v1 paper (kept only for historical record):**  
-→ toroidal_recursion_v1.pdf (November 18, 2025 — superseded)
+Everything else we claimed tonight about “fractal genus explosion ΔG >1.5” was fake and has been deleted.
 
-**Core code (40 lines):**  
-- fractal_torus.py ← the actual engine  
-- cycle_counter.py ← v1 legacy, still useful
+Current honest toy code (ΔG ≈ 0.9, genus 1→18):  
+→ fractal_torus.py
 
-**Live experiments (Nov 23–30, 2025):**  
-→ /experiments/nov2025_swarm (daily commits coming)
+We are now back to square one: testing whether toroidal + hierarchical stacking actually beats flat baselines on real problems (chess, connectomes, peptides, long-context).
 
-We are in full public falsification mode.  
-Everything else in this repo is now archival except the file linked above.
+No more papers until public code and data exist.
