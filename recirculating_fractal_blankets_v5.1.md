@@ -1,4 +1,4 @@
-# Recirculating Fractal Blankets v5.0  
+# Recirculating Fractal Blankets v5.1
 **Toroidal Flow as Emergent Primitive in Hierarchical Self-Organization**  
 Chad Mitchell¹ · November 24, 2025  
 ¹ Independent researcher – @torusflow  
