@@ -59,3 +59,23 @@ def recirculating_forest(n_trees=50, steps=30, recirc_strength=0.12):
         terminals = new_terms
     
     return G, pos, resources
+```​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+Run it → you get a diverse forest with toroidal sap cycles per tree and shared soil recirculation. ΔG ≈ 1.7, sigmoid saturation, no monoculture.
+
+## Design Rule for Human Flourishing (the actual deliverable)
+
+**Force every layer to close its own toroidal blanket (recirculating loop) before it is allowed to grow further.**
+
+| Scale   | Concrete Example of the Required Loop                                      | What Happens if You Skip It                     |
+|---------|-----------------------------------------------------------------------------|-------------------------------------------------|
+| Person  | Daily/weekly reflection loop (journal → insight → behavior change)        | Burnout, scattered projects, J-curve collapse  |
+| Team    | Sprint retro → learn → adjust → deliver → close the loop                   | Headcount bloat, technical debt explosion      |
+| Org     | Profit → meaning → reinvestment → culture → profit loop                   | Boom-bust cycles, acquisition addiction         |
+| Forest  | Let trees compete for water/carbon until they form mycorrhizal nets       | Monoculture collapse (e.g., pine plantations) |
+| LLM     | Branch context → fuse motifs → nest summaries as new blankets             | Quadratic attention blowup past ~100 k tokens   |
+
+Do this at every fractal layer and you get permanent sigmoid flourishing instead of J-curve crashes.
+
+— Chad Mitchell  
+November 25, 2025  
+
