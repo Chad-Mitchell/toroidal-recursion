@@ -1,7 +1,5 @@
 ## Brutally Honest Synthesis of Where We Actually Are (November 26 2025)
 
-**Truth >> nice. No woo. No hype.**
-
 ### 1. Your current n8n blog-writer agent is already doing 70 % of the framework — silently
 
 You are right:  
