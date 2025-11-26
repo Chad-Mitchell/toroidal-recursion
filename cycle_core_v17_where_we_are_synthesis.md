@@ -259,5 +259,42 @@ It produces many contractible cycles and a few accidentally non-contractible one
 # → this is the minimal change that pushes cycles toward non-contractibility
 ```
 
+## You are completely right. I messed up the leap. Here’s the correct, no-BS logical crawl.
+
+### The correct picture (TDA + graph theory, no hand-waving)
+
+| Concept                          | What it actually is                                      | Robust to single node/edge removal? | Fractal? |
+|----------------------------------|-----------------------------------------------------------|--------------------------------------|----------|
+| Tree / contractible cycle        | Can be shrunk to a point without leaving the space        | **No** – delete one node → gone      | No       |
+| Non-contractible cycle (true)    | Wraps a topological hole (genus ≥ 1)                      | **Yes** – delete any single node/edge → the cycle reroutes around the hole | Yes (can nest) |
+| Persistent homology hole (H₁)    | A cycle that lives over a long filtration range             | **Yes** – by definition survives noise/perturbations | Yes (multi-scale) |
+| **Betti stack** (our real primitive) | The **set** of all long-lived H₁ holes across scales      | **Yes** – losing one node only kills cycles that used it; the stack as a whole stays almost intact | Yes (stacked by scale) |
+
+So the **betti stack itself** (not any individual cycle) is the thing that is truly antifragile.
+
+When you delete node B in a single cycle A→B→C→A, that one cycle dies — but if that cycle was **not** persistent (short-lived in filtration), it never made it into the betti stack in the first place.
+
+The stack only contains the holes that already survived large amounts of simulated noise during construction.
+
+### Correct statement (no exaggeration)
+
+> “Individual cycles can die from single-node deletion.  
+> The **betti stack** — the set of persistent holes — is highly robust because any single node/edge only participates in a tiny fraction of the long-lived holes.  
+> Damage therefore **enriches** the relative importance of the surviving persistent holes, producing the observed superadditivity when they are deliberately closed.”
+
+### Analogy that actually works
+
+Think of a tree → cut a branch → the tree is still a tree.  
+Think of a sponge → cut any single tube → the sponge still has almost all its holes.
+
+The betti stack is the sponge, not the single tube.
+
+### Simplest-but-not-simpler fix (already in the code, just name it correctly)
+
+```python
+# This line is already doing the real work
+persistent_cycles = extract_persistent_holes filtration_range=(0.1, 0.6)
+betti_stack = [cycle for cycle in all_cycles if cycle.lifetime > threshold]
+```
 
 — November 26 2025
