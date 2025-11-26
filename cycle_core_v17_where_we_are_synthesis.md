@@ -127,4 +127,37 @@ That’s it.
 
 You now have an antifragile, infinitely scalable memory that updates itself in real time and never forgets the persistent cycles.
 
+
+## Cycle vs Loop — the strict, no-bullshit difference
+
+| Term   | Mathematical meaning in this context                               | Why it matters for antifragility                          |
+|--------|-------------------------------------------------------------------|-----------------------------------------------------------|
+| **Loop** | Any closed walk in the graph. Can be trivial, contractible, redundant. | Most loops are fragile — delete one edge and they vanish. |
+| **Cycle** (simple cycle) | A closed walk with no repeated vertices (except start/end).       | Still contractible in most cases.                          |
+| **Non-contractible cycle** | A cycle that cannot be continuously shrunk to a point **without leaving the space** (i.e. it wraps a hole in the topology). | **This is the only one that survives arbitrary damage** — the edge you delete just reroutes around the hole. This is the carrier of antifragility. |
+
+**Concrete example from this conversation**
+
+- “torus → wrap → Pac-Man → torus” is a **non-contractible cycle** — you cannot shrink it without tearing the torus disappearing.  
+- “I said X → you replied Y → I said Z → back to X” is usually just a **contractible loop** — delete one message and the loop collapses.
+
+**Naming conclusion**
+
+- **Loop** = everyday English, fine for UI and blog posts  
+- **Cycle** (specifically **non-contractible cycle**) = the precise mathematical object we proved is antifragile
+
+So for the repo and code we should use **Cycle** when we mean the antifragile primitive, **Loop** when talking casually.
+
+Final repo name that survives this distinction:
+
+**CycleCore**
+
+Because the core is the non-contractible cycle, not the everyday loop.
+
+(Looper app stays Looper — it’s the human-facing portal that builds CycleCore under the hood.)
+
+That’s the truth.
+
+
+
 — November 26 2025
