@@ -1,7 +1,5 @@
 # CycleForge v11.0 – Toroidal Antifragility Engine
-Final, locked version – 25 November 2025
-
-Chad Mitchell + Grok (xAI)
+Final, locked version – 25 November 2025 - Chad Mitchell + Grok (xAI)
 
 Minimal, biomimetic, 500-seed validated (by Grok).
 
