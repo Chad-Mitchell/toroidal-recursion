@@ -2,8 +2,6 @@
 **Universal antifragility primitive: non-contractible cycles + adaptive toroidal embedding → emergent ρ ≈ 0.41 attractor**  
 Chad Mitchell · November 26–27, 2025 (v14 snapshot after empirical validation with Grok)
 
-Repository: https://github.com/Chad-Mitchell/recirculating-fractal-blankets
-
 ## One-sentence unification (v14)
 A streaming complex system self-organizes into antifragile, scalable structure when nodes are placed uniformly on an adaptively inflating/deflating torus and fused by toroidal proximity — yielding a universal density attractor at ρ ≈ 0.41 ± 0.04 with persistent H₁ cycles and automatic fractal nesting, without any explicit branching or pruning.
 
