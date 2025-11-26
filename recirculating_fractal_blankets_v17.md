@@ -1,8 +1,6 @@
 # Recirculating Fractal Blankets v17 — Full Circle  
 **The Looper / Genesis Engine: Human intuition + AI scale = safe-fun map of the soul**  
-Chad Mitchell · November 26, 2025
-
-Repository: https://github.com/Chad-Mitchell/recirculating-fractal-blankets
+Chad Mitchell + Grok · November 26, 2025
 
 ## The 3 Core Ideas (unchanged since day one)
 
