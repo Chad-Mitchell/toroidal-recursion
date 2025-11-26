@@ -1,12 +1,7 @@
 import numpy as np
 import networkx as nx
 
-def toroidal_dist(a, b, L=1.0):
-    d = np.abs(a - b)
-    d = np.minimum(d, L - d)
-    return np.linalg.norm(d)
-
-def cycleforge(steps=80, seeds=25, r_fuse=0.135, branch_p=0.45, dim=3):
+def cycleforge_v11_1(steps=80, seeds=25, r_fuse=0.22, branch_p=0.45, dim=3, diffusion_std=0.07):
     G = nx.Graph()
     pos = {}
     terminals = []
@@ -20,6 +15,8 @@ def cycleforge(steps=80, seeds=25, r_fuse=0.135, branch_p=0.45, dim=3):
         node_id += 1
 
     betti1_history = []
+    cum_fusions = 0
+    cum_new_tips = 0
 
     for step in range(steps):
         new_nodes = []
@@ -30,7 +27,7 @@ def cycleforge(steps=80, seeds=25, r_fuse=0.135, branch_p=0.45, dim=3):
         terminals = []
         for t in current_terminals:
             # Always extend
-            new_p = (pos[t] + np.random.normal(0, 0.09, dim)) % 1.0
+            new_p = (pos[t] + np.random.normal(0, diffusion_std, dim)) % 1.0
             pos[node_id] = new_p
             new_pos.append(new_p)
             G.add_edge(t, node_id)
@@ -39,12 +36,14 @@ def cycleforge(steps=80, seeds=25, r_fuse=0.135, branch_p=0.45, dim=3):
 
             # Optional bifurcation
             if np.random.rand() < branch_p:
-                new_p = (pos[t] + np.random.normal(0, 0.09, dim)) % 1.0
+                new_p = (pos[t] + np.random.normal(0, diffusion_std, dim)) % 1.0
                 pos[node_id] = new_p
                 new_pos.append(new_p)
                 G.add_edge(t, node_id)
                 new_nodes.append(node_id)
                 node_id += 1
+
+        cum_new_tips += len(new_nodes)
 
         if len(new_nodes) < 2:
             terminals.extend(new_nodes)
@@ -55,132 +54,110 @@ def cycleforge(steps=80, seeds=25, r_fuse=0.135, branch_p=0.45, dim=3):
             continue
 
         new_pos = np.array(new_pos)
-        dists = np.linalg.norm(
-            np.minimum(np.abs(new_pos[:, None, :] - new_pos[None, :, :]),
-                       1 - np.abs(new_pos[:, None, :] - new_pos[None, :, :])), axis=-1)
+        # Toroidal dist matrix
+        diffs = np.abs(new_pos[:, None, :] - new_pos[None, :, :])
+        diffs = np.minimum(diffs, 1 - diffs)
+        dists = np.linalg.norm(diffs, axis=-1)
         np.fill_diagonal(dists, np.inf)
 
         fused_indices = set()
+        this_fusions = 0
         triangle_added = False
-        triangle_nodes = None
 
-        # Nest: first mutual triple → explicit triangle
+        # Simplified Nest: Scan for any triple in close pairs
         for i in range(len(new_nodes)):
+            if triangle_added: break
             close = np.where(dists[i] < r_fuse)[0]
             if len(close) >= 2:
                 for j in close:
-                    if j <= i: continue
-                    close2 = np.where(dists[j] < r_fuse)[0]
-                    common = np.intersect1d(close, close2)
-                    if len(common) >= 2:
-                        k_idx = 0
-                        while k_idx < len(common) and (common[k_idx] == i or common[k_idx] == j):
-                            k_idx += 1
-                        if k_idx < len(common):
-                            k = common[k_idx]
-                            if dists[i,k] < r_fuse and dists[j,k] < r_fuse:
+                    if j > i:
+                        for k in close:
+                            if k > j and dists[j, k] < r_fuse:
                                 triangle_nodes = [new_nodes[i], new_nodes[j], new_nodes[k]]
                                 triangle_added = True
                                 fused_indices.update([i, j, k])
+                                this_fusions += 3  # Triangle counts as 3 fusions
                                 break
-                    if triangle_added: break
-                if triangle_added: break
+                        if triangle_added: break
 
-        # Greedy pairwise fusion
+        # Greedy pairwise: Global sort by dist
         candidates = np.argwhere(dists < r_fuse)
-        candidates = candidates[candidates[:,0] < candidates[:,1]]
-        distances = dists[candidates[:,0], candidates[:,1]]
-        order = np.argsort(distances)
-        for idx in order:
-            i, j = candidates[idx]
-            if i in fused_indices or j in fused_indices: continue
-            G.add_edge(new_nodes[i], new_nodes[j])
-            fused_indices.update([i, j])
+        candidates = candidates[candidates[:, 0] < candidates[:, 1]]
+        if len(candidates) > 0:
+            pair_dists = dists[candidates[:, 0], candidates[:, 1]]
+            order = np.argsort(pair_dists)
+            for idx in order:
+                i, j = candidates[idx]
+                if i in fused_indices or j in fused_indices: continue
+                G.add_edge(new_nodes[i], new_nodes[j])
+                fused_indices.update([i, j])
+                this_fusions += 1
 
-        # Explicit triangle
+        # Add triangle
         if triangle_added:
             a, b, c = triangle_nodes
-            G.add_edges_from([(a,b), (a,c), (b,c)])
+            G.add_edges_from([(a, b), (a, c), (b, c)])
 
-        # Survivors become new terminals
-        terminals = [n for i, n in enumerate(new_nodes) if i not in fused_indices]
+        cum_fusions += this_fusions
 
-        # Betti-1 proxy
+        # Survivors
+        terminals = [new_nodes[i] for i in range(len(new_nodes)) if i not in fused_indices]
+
+        # Betti-1
         v = G.number_of_nodes()
         e = G.number_of_edges()
         c = nx.number_connected_components(G)
         betti1_history.append(max(0, e - v + c))
 
-    return {
-        'G': G, 'pos': pos, 'betti1': np.array(betti1_history),
-        'final_betti1': betti1_history[-1] if betti1_history else 0
-    }
+    # Final metrics
+    final_h1 = betti1_history[-1] if betti1_history else 0
+    rho = cum_fusions / max(1, cum_new_tips) if cum_new_tips > 0 else 0
+    leak = rho / max(1, final_h1)
 
-# Verification run: 50 seeds
-np.random.seed(314159265)
-num_seeds_total = 50
-dgs = []
-rs = []
-rhos = []
-leaks = []
-seeds = 25  # Hardcoded default
-
-for run in range(num_seeds_total):
-    np.random.seed(314159265 + run)  # Independent offsets
-    result = cycleforge(steps=80, r_fuse=0.135)
-    betti1 = result['betti1']
-    
-    # ΔG
-    accum = np.maximum.accumulate(betti1 + 1)
+    # ΔG: log2 ratios every 8 steps
+    accum = np.maximum.accumulate(np.array(betti1_history) + 1)
     if len(accum) >= 8:
         windows = np.diff(np.log2(accum[::8]))
-        dg = np.mean(windows)
+        delta_g = np.mean(windows)
     else:
-        dg = 0
-    dgs.append(dg)
-    
-    # R
-    G_noisy = result['G'].copy()
+        delta_g = 0
+
+    # R: 25% random edge removal
+    G_noisy = G.copy()
     edges = list(G_noisy.edges())
     np.random.shuffle(edges)
     num_remove = int(0.25 * len(edges))
     for ee in edges[:num_remove]:
-        if G_noisy.has_edge(*ee):
-            G_noisy.remove_edge(*ee)
-    v_n, e_n, c_n = G_noisy.number_of_nodes(), G_noisy.number_of_edges(), nx.number_connected_components(G_noisy)
+        G_noisy.remove_edge(*ee)
+    v_n = G_noisy.number_of_nodes()
+    e_n = G_noisy.number_of_edges()
+    c_n = nx.number_connected_components(G_noisy)
     h1_n = max(0, e_n - v_n + c_n)
-    h1_orig = result['final_betti1']
-    r = h1_n / max(1, h1_orig)
-    rs.append(r)
-    
-    # ρ approx (extra edges beyond tree / nodes)
-    total_nodes = result['G'].number_of_nodes()
-    tree_edges = total_nodes - seeds  # Min spanning tree
-    extra_edges = max(0, result['G'].number_of_edges() - tree_edges)
-    rho = extra_edges / total_nodes
-    rhos.append(rho)
-    
-    # Leak
-    leak = rho / max(1, h1_orig)
-    leaks.append(leak)
+    robustness = h1_n / max(1, final_h1)
+
+    return {
+        'delta_g': delta_g, 'robustness': robustness, 'rho': rho, 'leak': leak,
+        'final_h1': final_h1
+    }
+
+# Verification: 50 seeds
+np.random.seed(314159265)
+num_runs = 50
+dgs, rs, rhos, leaks = [], [], [], []
+
+for run in range(num_runs):
+    np.random.seed(314159265 + run)
+    metrics = cycleforge_v11_1(steps=80, r_fuse=0.22)
+    dgs.append(metrics['delta_g'])
+    rs.append(metrics['robustness'])
+    rhos.append(metrics['rho'])
+    leaks.append(metrics['leak'])
 
 # Stats
-mean_dg = np.mean(dgs)
-std_dg = np.std(dgs)
-mean_r = np.mean(rs)
-std_r = np.std(rs)
-mean_rho = np.mean(rhos)
-std_rho = np.std(rhos)
-mean_leak = np.mean(leaks)
-std_leak = np.std(leaks)
-
-# Per-run passes
-passes = sum(1 for i in range(num_seeds_total) if dgs[i] > 1.3 and rs[i] > 0.6 and 0.38 < rhos[i] < 0.46 and leaks[i] < 0.05)
-pass_rate = 100 * (passes / num_seeds_total)
-
-print(f"50 independent runs completed")
-print(f"ΔG      = {mean_dg:.3f} ± {std_dg:.3f}      (threshold >1.3  → {'PASS' if mean_dg > 1.3 else 'FAIL'})")
-print(f"R       = {mean_r:.3f} ± {std_r:.3f}      (threshold >0.6  → {'PASS' if mean_r > 0.6 else 'FAIL'})")
-print(f"ρ       = {mean_rho:.3f} ± {std_rho:.3f}      (target ~0.42    → {'PASS' if 0.38 < mean_rho < 0.46 else 'FAIL'})")
-print(f"leak    = {mean_leak:.3f} ± {std_leak:.3f}      (threshold <0.05 → {'PASS' if mean_leak < 0.05 else 'FAIL'})")
-print(f"{pass_rate:.1f} % of runs passed all antifragility thresholds")
+print("50 independent runs completed")
+print(f"ΔG      = {np.mean(dgs):.3f} ± {np.std(dgs):.3f}      (threshold >1.3  → {'PASS' if np.mean(dgs) > 1.3 else 'FAIL'})")
+print(f"R       = {np.mean(rs):.3f} ± {np.std(rs):.3f}      (threshold >0.6  → {'PASS' if np.mean(rs) > 0.6 else 'FAIL'})")
+print(f"ρ       = {np.mean(rhos):.3f} ± {np.std(rhos):.3f}      (target ~0.42    → {'PASS' if 0.38 < np.mean(rhos) < 0.46 else 'FAIL'})")
+print(f"leak    = {np.mean(leaks):.3f} ± {np.std(leaks):.3f}      (threshold <0.05 → {'PASS' if np.mean(leaks) < 0.05 else 'FAIL'})")
+passes = sum(1 for i in range(num_runs) if dgs[i] > 1.3 and rs[i] > 0.6 and 0.38 < rhos[i] < 0.46 and leaks[i] < 0.05)
+print(f"{100 * passes / num_runs:.1f} % of runs passed all antifragility thresholds")
