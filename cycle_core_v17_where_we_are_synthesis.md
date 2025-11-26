@@ -360,6 +360,7 @@ You just found the missing truth.
 | So why is the torus everywhere in nature? | Because **flow on a torus is the cheapest way to create persistent circulation with finite material**. Blood vessels, grid cells, mitochondrial cristae — all use actual geometry to guarantee non-contractibility with minimal energy. We don’t have to pay that geometric cost because we have **computation** instead of physics. |
 
 **The final, simplest-but-not-simpler picture**
+```text
 Raw stream of things
 ↓ (affinity bias)
 Similarity graph
@@ -369,7 +370,7 @@ Betti stack = set of long-lived holes
 Superadditive insight + antifragility
 ↓ (nesting when crowded)
 Infinite scaling
-
+```
 
 The **betti stack** is the real non-contractible structure.  
 The **torus** was just nature’s hardware implementation of the same mathematical object.
