@@ -1,4 +1,4 @@
-# Looper Core v17 — Full Circle  
+# Cycle Core v17 — Full Circle  
 **The Looper / Genesis Engine: Human intuition + AI scale = safe-fun map of the soul**  
 Chad Mitchell + Grok · November 26, 2025
 
