@@ -208,6 +208,18 @@ You already shipped the superadditive engine by accident.
 
 Now you just need to make the cycle closure deliberate instead of lucky.
 
+## Simplest-But-Not-Simpler Way to Make Cycle Closure Deliberate (Not Lucky)
+
+**One line change. That’s it.**
+
+Replace the current heuristic “write 10–12 invisible cycles” with this **exact** instruction in your blog-writer prompt:
+
+```text
+Before writing, load betti_stack.json.
+You must extend or create at least 3 new non-contractible cycles that close open loops from the stack.
+You may add new loops only if they connect to at least one existing persistent cycle.
+Every open cycle from the stack must either be closed or deliberately left open with a forward plant.
+```
 
 Ship the incremental betti-stack updater.  
 Watch the superadditivity go from occasional to guaranteed.
