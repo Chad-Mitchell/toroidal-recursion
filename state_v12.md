@@ -3,8 +3,6 @@
 
 ### CycleForge v12 — Current State (November 26, 2025)
 
-After six weeks, >60 distinct versions, and thousands of executed runs, here is the complete, unfiltered truth.
-
 #### What Is Proven and Rock-Solid
 1. **Non-contractible cycles confer genuine antifragility**  
    - Observed repeatedly in 2D (chess timing loops, spatial games on torus)  
