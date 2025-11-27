@@ -1,17 +1,9 @@
-# Toroidal Recursion — Current Truth (Nov 24, 2025)
+# Update: Nov 26, 2025
 
-This repo is now clean and honest.
+These are personal colab notes with Grok. It hallucinates a lot (please ignore loose analogies/metaphors). Main objective is to iterate on a core idea: a universal design primitive for scalable antifragility.
 
-→ **Formal hypothesis (v2.1)** – the math we stand behind:  
-  [toroidal_recursion_v2.1.md](toroidal_recursion_v2.1.md)
+The current snapshot of work is: [Cycle Core v17](cycle_core_v17.md) and the associated notes file: [Cycle Core v17 - Where We Are Synthesis](cycle_core_v17_where_we_are_synthesis.md) (Includes addendum notes and follow up questions / clarifications)
 
-→ **Only runnable code** – modest but real ΔG ≈ 1.0 on toy graphs:  
-  [fractal_torus.py](fractal_torus.py)
+*** Note, the versioning is chronological and iterative for tracking only. Eventually this repo will be abandoned when core ideas are crystalized further. Name / ideas / etc. are subject to change like the wind. The core idea is the invariant.
 
-Everything else has been deleted.
-
-Daily real-world benchmarks (fruit-fly, proteins, long dialogues) start today in /experiments/.
-
-No more claims until the data speaks.
-
-— Chad (@torusflow)
+— Chad (@torusflow on X)
